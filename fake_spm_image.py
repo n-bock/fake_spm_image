@@ -6,9 +6,9 @@
 
 import fire
 import numpy as np
-from skimage import io, exposure, transform
 import matplotlib.pyplot as plt
-from matplotlib_scalebar.scalebar import ScaleBar
+from skimage import io, exposure, transform
+
 
 
 def add_noise(img, noise_level):
@@ -66,10 +66,6 @@ def fake_spm_image(
     fig, ax1 = plt.subplots()
     ax1.imshow(img_n_b_l_c, cmap=plt.get_cmap("YlOrBr"))
     ax1.axis("off")
-    scalebar = ScaleBar(
-        1.2, "cm", pad=0.6, length_fraction=0.25, frameon=False, location="lower right"
-    )
-    ax1.add_artist(scalebar)
     fig.savefig("spm_out.png", bbox_inches="tight")
 
     if txt_out:
